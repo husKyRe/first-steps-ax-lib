@@ -1,4 +1,4 @@
-name: "first-step-lib"
+name: "@huskyre/first-steps-ax-lib"
 version: 0.0.0
 type: lib
 keywords:
@@ -15,3 +15,11 @@ devDependencies:
   "@ax/sdk": 2311.0.1
 installStrategy: strict
 apaxVersion: 3.1.0
+
+scripts:
+  pubPack:
+    - apax version $1 # set new version with arg from cli
+    - apax build
+    - apax pack
+    - apax publish --package *.tgz --registry https://npm.pkg.github.com
+    - rm *.tgz
